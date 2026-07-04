@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YSJ Capital LLC | Real Estate Investing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue: #1a56db; --blue-dark: #1244b0; --text: #111827; --muted: #4b5563; --light: #f9fafb; --border: #e5e7eb; --white: #ffffff; --green: #16a34a; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .topbar { background: #1f2937; height: 6px; }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 12px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
+    .nav-logo { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #1a56db, #7c3aed); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.75rem; flex-shrink: 0; }
+    .nav-name strong { display: block; font-size: 0.88rem; font-weight: 700; }
+    .nav-name span { font-size: 0.72rem; color: var(--muted); }
+    .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.8rem; font-weight: 500; color: var(--text); transition: color 0.15s; }
+    .nav-links a:hover { color: var(--blue); }
+    #home { padding: 70px 40px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; align-items: center; }
+    .hero-left h1 { font-size: 2.35rem; font-weight: 700; color: var(--blue); line-height: 1.2; margin-bottom: 20px; }
+    .hero-left p { font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; line-height: 1.75; }
+    .checklist { list-style: none; margin-bottom: 32px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.84rem; margin-bottom: 10px; background: #eff6ff; border: 1px solid #bfdbfe; padding: 10px 14px; border-radius: 6px; color: var(--text); }
+    .checklist li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--blue); color: white; padding: 11px 22px; border-radius: 6px; font-weight: 600; font-size: 0.87rem; transition: background 0.2s; display: inline-block; }
+    .btn-primary:hover { background: var(--blue-dark); }
+    .btn-secondary { background: white; color: var(--text); padding: 11px 22px; border-radius: 6px; font-weight: 600; font-size: 0.87rem; border: 1px solid var(--border); transition: border-color 0.2s; display: inline-block; }
+    .btn-secondary:hover { border-color: #9ca3af; }
+    .biz-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .biz-logo { width: 90px; height: 90px; border-radius: 12px; background: linear-gradient(135deg, #1a56db 0%, #7c3aed 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 0.88rem; margin: 0 auto 20px; text-align: center; line-height: 1.3; }
+    .biz-logo .sub { font-size: 0.52rem; font-weight: 400; opacity: 0.85; margin-top: 2px; }
+    .biz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .biz-cell { background: white; padding: 13px 15px; }
+    .bc-label { font-size: 0.68rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+    .bc-val { font-size: 0.82rem; font-weight: 500; color: var(--text); }
+    .trust-bar { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 40px; }
+    .trust-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .trust-badge { display: flex; align-items: center; gap: 8px; background: white; border: 1px solid var(--border); border-radius: 20px; padding: 8px 16px; font-size: 0.78rem; font-weight: 500; color: var(--text); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .section-wrap { max-width: 1100px; margin: 0 auto; padding: 70px 40px; }
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+    h2 { font-size: 1.85rem; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+    .section-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 36px; max-width: 580px; line-height: 1.7; }
+    #about { background: var(--white); border-top: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about-left p { font-size: 0.88rem; color: var(--muted); margin-bottom: 14px; line-height: 1.8; }
+    .expect-box { background: var(--light); border: 1px solid var(--border); border-radius: 10px; padding: 28px; }
+    .expect-box h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 16px; }
+    .expect-box ul { list-style: none; }
+    .expect-box li { font-size: 0.83rem; color: var(--muted); padding: 9px 0 9px 16px; border-bottom: 1px solid var(--border); position: relative; line-height: 1.55; }
+    .expect-box li:last-child { border-bottom: none; }
+    .expect-box li::before { content: '•'; color: var(--blue); position: absolute; left: 0; }
+    #services { background: var(--light); border-top: 1px solid var(--border); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; }
+    .service-num { width: 30px; height: 30px; border-radius: 6px; background: var(--blue); color: white; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .service-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
+    .service-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+    #faq { background: var(--white); border-top: 1px solid var(--border); }
+    .faq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+    .faq-item h3 { font-size: 0.88rem; font-weight: 700; margin-bottom: 10px; }
+    .faq-item p { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    #contact { background: var(--light); border-top: 1px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .contact-left p { font-size: 0.88rem; color: var(--muted); margin-bottom: 28px; line-height: 1.7; }
+    .contact-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+    .ci-icon { width: 36px; height: 36px; border-radius: 8px; background: #eff6ff; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .ci-label { font-size: 0.7rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .ci-val { font-size: 0.87rem; font-weight: 500; margin-top: 2px; }
+    .ci-val a { color: var(--blue); }
+    .chat-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; }
+    .chat-box .chat-ico { font-size: 2.8rem; margin-bottom: 14px; }
+    .chat-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .chat-box p { font-size: 0.83rem; color: var(--muted); margin-bottom: 20px; line-height: 1.65; }
+    .chat-consent { font-size: 0.74rem; color: var(--muted); background: var(--light); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; margin-top: 16px; line-height: 1.65; text-align: left; }
+    #privacy-section, #terms-section, #sms-section { background: var(--white); border-top: 1px solid var(--border); }
+    .legal-content { font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
+    .legal-content h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin: 24px 0 8px; }
+    .legal-content p { margin-bottom: 12px; }
+    .legal-content ul { margin: 0 0 12px 20px; }
+    .legal-content li { margin-bottom: 6px; }
+    .updated { font-size: 0.78rem; color: var(--muted); margin-bottom: 28px; }
+    footer { background: #111827; color: #9ca3af; padding: 44px 40px 24px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px; margin-bottom: 32px; }
+    .footer-brand strong { color: white; font-size: 0.9rem; display: block; margin-bottom: 6px; }
+    .footer-brand p { font-size: 0.78rem; max-width: 260px; line-height: 1.65; }
+    .footer-col h4 { color: white; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 7px; }
+    .footer-col a { font-size: 0.8rem; color: #9ca3af; transition: color 0.15s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; border-top: 1px solid #374151; padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 0.74rem; }
+    .footer-disclaimer { max-width: 1100px; margin: 14px auto 0; font-size: 0.69rem; color: #6b7280; line-height: 1.65; }
+    @media (max-width: 860px) {
+      nav { padding: 12px 20px; } .nav-links { display: none; }
+      #home { grid-template-columns: 1fr; gap: 32px; padding: 48px 20px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .services-grid, .faq-grid { grid-template-columns: 1fr; }
+      .section-wrap { padding: 48px 20px; } .trust-bar { padding: 14px 20px; }
+      footer { padding: 36px 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">YSJ</div>
+    <div class="nav-name">
+      <strong>YSJ Capital LLC</strong>
+      <span>Real Estate Investing</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#privacy-section">Privacy</a></li>
+    <li><a href="#terms-section">Terms</a></li>
+    <li><a href="#sms-section">SMS Terms</a></li>
+  </ul>
+</nav>
+
+<div id="home">
+  <div class="hero-left">
+    <h1>Real estate investing with direct communication and property update alerts via chat.</h1>
+    <p>YSJ Capital LLC acquires residential properties directly from homeowners across Florida and nationwide. We use our website chat to communicate with property owners, send deal-related updates, and schedule property walkthroughs — all based on your consent.</p>
+    <ul class="checklist">
+      <li>Real business identity with published phone, email, address, and domain</li>
+      <li>Website chat is the only SMS opt-in method on this site</li>
+      <li>Privacy Policy, Terms of Service, and SMS Terms published on the same website</li>
+    </ul>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Contact Us</a>
+      <a href="tel:+19546699389" class="btn-secondary">Call (954) 669-9389</a>
+    </div>
+  </div>
+  <div>
+    <div class="biz-card">
+      <div class="biz-logo">YSJ<span class="sub">YSJ CAPITAL LLC</span></div>
+      <div class="biz-grid">
+        <div class="biz-cell"><div class="bc-label">Business Name</div><div class="bc-val">YSJ Capital LLC</div></div>
+        <!-- DOMAIN PLACEHOLDER -->
+        <div class="biz-cell"><div class="bc-label">Domain</div><div class="bc-val">ysjcapital.com</div></div>
+        <div class="biz-cell"><div class="bc-label">Phone</div><div class="bc-val">(954) 669-9389</div></div>
+        <div class="biz-cell"><div class="bc-label">Hours</div><div class="bc-val">Mon–Fri, 9 AM–5 PM ET</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-badge"><span class="dot"></span>Exact business name matches the site</div>
+    <div class="trust-badge"><span class="dot"></span>Widget-based opt-in only</div>
+    <div class="trust-badge"><span class="dot"></span>No website contact form</div>
+    <div class="trust-badge"><span class="dot"></span>Published privacy and terms</div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-label">About</div>
+    <h2>Clear, local, and professional.</h2>
+    <div class="about-grid">
+      <div class="about-left">
+        <p>YSJ Capital LLC is a Florida-based real estate investment company that purchases residential properties directly from homeowners. We serve Miami and surrounding communities, as well as property owners across multiple states through our nationwide acquisitions program.</p>
+        <p>Our website allows property owners to learn about our buying process and reach out through our website chat. If a visitor provides a mobile number through the chat, any SMS communication is based on their express consent — covering property updates, offer status, appointment reminders, and related investment communications.</p>
+        <p>We are a registered Florida LLC (EIN: 41-2456447). Our team is committed to professional, transparent service for every homeowner we work with.</p>
+      </div>
+      <div class="expect-box">
+        <h3>What visitors can expect</h3>
+        <ul>
+          <li>Direct communication from a real acquisitions company with a published address and contact channels</li>
+          <li>Property offer updates and investment-related communications</li>
+          <li>Appointment scheduling for property walkthroughs and consultations</li>
+          <li>Published Privacy Policy, Terms of Service, and SMS Terms on the same domain</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-wrap">
+    <div class="section-label">What We Do</div>
+    <h2>How we work with property owners</h2>
+    <p class="section-sub">YSJ Capital LLC is a direct property buyer. We are not a licensed real estate brokerage and do not represent buyers or sellers in an agent capacity.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-num">01</div><h3>Property Acquisition Inquiries</h3><p>We respond to property owner inquiries, answer questions about our buying process, and communicate next steps for properties we are interested in acquiring.</p></div>
+      <div class="service-card"><div class="service-num">02</div><h3>Offer Updates &amp; Appointment Scheduling</h3><p>We send property offer status updates, schedule on-site walkthroughs, confirm appointments, and send reminders to keep transactions moving efficiently.</p></div>
+      <div class="service-card"><div class="service-num">03</div><h3>Investment Opportunity Alerts</h3><p>For users who consent through our chat widget, we may send investment opportunity alerts, market updates, and acquisition-related communications relevant to their property or situation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-wrap">
+    <div class="section-label">FAQ</div>
+    <h2>Common questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item"><h3>What types of properties do you buy?</h3><p>We purchase residential properties in any condition — single family homes, multi-unit, inherited properties, vacant homes, and more. We operate in Florida and select markets nationwide.</p></div>
+      <div class="faq-item"><h3>How can I contact you?</h3><p>You can reach YSJ Capital LLC by phone at (954) 669-9389, by email at yvesjestates@gmail.com, or through the website chat widget on this page.</p></div>
+      <div class="faq-item"><h3>What SMS messages will I receive?</h3><p>If you opt in through our chat widget, you may receive property offer updates, appointment reminders, walkthrough confirmations, and investment opportunity alerts. Reply STOP at any time to opt out.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-label">Contact</div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2>Get in touch</h2>
+        <p>Reach us by phone, email, or use the chat widget on this page. Whether you have a property to sell or want to learn more about our acquisition process, we respond promptly during business hours.</p>
+        <div class="contact-item"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-val"><a href="tel:+19546699389">(954) 669-9389</a></div></div></div>
+        <div class="contact-item"><div class="ci-icon">✉️</div><div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:yvesjestates@gmail.com">yvesjestates@gmail.com</a></div></div></div>
+        <div class="contact-item"><div class="ci-icon">📍</div><div><div class="ci-label">Address</div><div class="ci-val">2125 Biscayne Blvd, Ste 204 #23658<br/>Miami, FL</div></div></div>
+        <div class="contact-item"><div class="ci-icon">🕐</div><div><div class="ci-label">Hours</div><div class="ci-val">Mon–Fri, 9 AM–5 PM ET</div></div></div>
+      </div>
+      <div class="chat-box">
+        <div class="chat-ico">💬</div>
+        <h3>Chat with us on this page</h3>
+        <p>Use the chat widget in the bottom-right corner to connect with our acquisitions team. Tell us about your property and we'll follow up with next steps.</p>
+        <a href="tel:+19546699389" class="btn-primary">Call (954) 669-9389</a>
+        <div class="chat-consent">By initiating a chat and providing your mobile number, you consent to receive SMS/text messages from YSJ Capital LLC, including property offer updates, appointment reminders, walkthrough confirmations, and investment opportunity alerts. Message &amp; data rates may apply. Message frequency may vary. Reply <strong>STOP</strong> to opt out at any time. Reply <strong>HELP</strong> for help. Consent is not a condition of any purchase or service. See our <a href="#privacy-section" style="color:var(--blue)">Privacy Policy</a> and <a href="#sms-section" style="color:var(--blue)">SMS Terms</a>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy-section">
+  <div class="section-wrap">
+    <div class="section-label">Privacy</div>
+    <h2>Privacy Policy</h2>
+    <p class="updated">Last Updated: June 1, 2026</p>
+    <div class="legal-content">
+      <p>YSJ Capital LLC ("Company," "we," "us") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or contact us regarding our real estate investment services.</p>
+      <h3>Information We Collect</h3>
+      <p>We may collect your name, email address, phone number, mailing address, and property-related details you voluntarily provide through our website chat or other contact methods. We also collect standard technical data such as IP address and browser type.</p>
+      <h3>How We Use Your Information</h3>
+      <ul>
+        <li>To evaluate and respond to property acquisition inquiries</li>
+        <li>To communicate via phone, email, or SMS (with your consent) regarding your property</li>
+        <li>To schedule property walkthroughs and send appointment reminders</li>
+        <li>To send property offer updates and investment opportunity alerts (with your consent)</li>
+        <li>To comply with legal and regulatory obligations</li>
+      </ul>
+      <h3>SMS Communications</h3>
+      <p>If you provide your phone number through our website chat widget and consent to receive messages, you agree to receive SMS text messages from YSJ Capital LLC. These messages may include property offer updates, appointment reminders, walkthrough confirmations, and investment opportunity alerts. Message &amp; data rates may apply. Message frequency varies. To opt out, reply <strong>STOP</strong>. For help, reply <strong>HELP</strong> or email yvesjestates@gmail.com.</p>
+      <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</strong></p>
+      <h3>Contact</h3>
+      <p>YSJ Capital LLC · 2125 Biscayne Blvd, Ste 204 #23658, Miami, FL · (954) 669-9389 · yvesjestates@gmail.com</p>
+    </div>
+  </div>
+</section>
+
+<section id="terms-section">
+  <div class="section-wrap" style="padding-top:0">
+    <div class="section-label">Terms</div>
+    <h2>Terms of Service</h2>
+    <p class="updated">Last Updated: June 1, 2026</p>
+    <div class="legal-content">
+      <p>These Terms govern your use of the YSJ Capital LLC website and services. By accessing this site, you agree to these Terms. YSJ Capital LLC is a direct real estate investment company — not a licensed real estate brokerage and does not represent buyers or sellers in an agent capacity.</p>
+      <h3>No Obligation</h3>
+      <p>Contacting us or using the website chat creates no obligation on either party. Any offer presented by YSJ Capital LLC is non-binding until a written purchase agreement is executed by both parties.</p>
+      <h3>SMS Terms</h3>
+      <p>SMS opt-in consent is obtained solely through the website chat widget on this site. Consent to receive SMS is not a condition of any purchase or service. See our <a href="#sms-section" style="color:var(--blue)">SMS Terms</a> for full details.</p>
+      <h3>Limitation of Liability</h3>
+      <p>To the fullest extent permitted by law, YSJ Capital LLC shall not be liable for any indirect, incidental, or consequential damages arising from your use of this website.</p>
+      <h3>Governing Law</h3>
+      <p>These Terms are governed by the laws of the State of Florida. Disputes shall be resolved in the appropriate courts of Florida.</p>
+      <h3>Contact</h3>
+      <p>YSJ Capital LLC · 2125 Biscayne Blvd, Ste 204 #23658, Miami, FL · yvesjestates@gmail.com</p>
+    </div>
+  </div>
+</section>
+
+<section id="sms-section">
+  <div class="section-wrap" style="padding-top:0">
+    <div class="section-label">SMS Terms</div>
+    <h2>SMS Terms of Service</h2>
+    <p class="updated">Last Updated: June 1, 2026</p>
+    <div class="legal-content">
+      <p>By providing your mobile phone number through the YSJ Capital LLC website chat widget and consenting to receive messages, you agree to the following SMS Terms of Service.</p>
+      <h3>Program Description</h3>
+      <p>YSJ Capital LLC sends SMS text messages to property owners and contacts who opt in through our website chat. Messages may include: property offer updates, appointment scheduling and reminders, on-site walkthrough confirmations, investment opportunity alerts, and acquisition-related follow-up communications.</p>
+      <h3>Opt-In Method</h3>
+      <p>SMS opt-in occurs <strong>only</strong> through the website chat widget on this site. No other opt-in mechanism is used. Consent is not a condition of any purchase or service.</p>
+      <h3>Opt-Out</h3>
+      <p>Reply <strong>STOP</strong> to any text message at any time to opt out. You will receive one final confirmation message. To re-subscribe, reply <strong>START</strong>.</p>
+      <h3>Help</h3>
+      <p>Reply <strong>HELP</strong> for help, or contact us at yvesjestates@gmail.com or (954) 669-9389.</p>
+      <h3>Message &amp; Data Rates</h3>
+      <p>Message and data rates may apply. Message frequency varies based on your property inquiry or transaction status.</p>
+      <h3>Carrier Disclaimer</h3>
+      <p>Mobile carriers are not liable for delayed or undelivered messages.</p>
+      <h3>Privacy</h3>
+      <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties.</strong></p>
+      <h3>Contact</h3>
+      <p>YSJ Capital LLC · 2125 Biscayne Blvd, Ste 204 #23658, Miami, FL · (954) 669-9389 · yvesjestates@gmail.com</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>YSJ Capital LLC</strong><p>A Florida-based real estate investment company acquiring residential properties in Miami and nationwide. EIN: 41-2456447.</p></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="#privacy-section">Privacy Policy</a></li><li><a href="#terms-section">Terms of Service</a></li><li><a href="#sms-section">SMS Terms</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:+19546699389">(954) 669-9389</a></li><li><a href="mailto:yvesjestates@gmail.com">yvesjestates@gmail.com</a></li><li style="color:#6b7280;font-size:0.8rem;line-height:1.6">2125 Biscayne Blvd, Ste 204 #23658<br/>Miami, FL</li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 YSJ Capital LLC · EIN 41-2456447 · All Rights Reserved.</p>
+    <p>Florida LLC · Miami, FL · Direct Property Buyer</p>
+  </div>
+  <p class="footer-disclaimer">YSJ Capital LLC is a direct real estate investment company and not a licensed real estate brokerage. We do not represent buyers or sellers in an agent capacity. SMS: Message &amp; data rates may apply. Reply STOP to opt out. Reply HELP for help. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</p>
+</footer>
+
+<!-- GHL WIDGET PLACEHOLDER — swap when ready -->
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a4869ac1cded9008aebc913" data-source="WEB_USER"></script>
+
+</body>
+</html>
